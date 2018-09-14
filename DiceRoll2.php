@@ -70,7 +70,8 @@
     }
     
     $dice = array();
-    $dice[0] = rand(1,6);
+    while($rollNumber <= 5) {
+         $dice[0] = rand(1,6);
     $dice[1] = rand(1,6);
     echo "<p>";
     $score = $dice[0] + $dice[1];
@@ -78,6 +79,12 @@
     $doubles = checkForDoubles($dice[0], $dice[1]);
     displayScoreText($score, $doubles);
     echo "</p>";
+        if($doubles){
+            ++$doubleCount
+        }
+        ++rollNumber;
+    }
+   echo "<p>Doubles occurred on $doubleCount of the NBR_ROLLS rolls.</p>"
     
     ?>
 </body>
